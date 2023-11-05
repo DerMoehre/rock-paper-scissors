@@ -28,8 +28,8 @@ let game = () => {
 
     for (let i = 0; i <= 4; i++) {
         console.log(playGame(playerChoice(), computerChoice()));
-        
     }
+    // check final score
     if (scorePlayer > scoreComputer) {
         alert(`You WON! Final Score: ${scorePlayer} - ${scoreComputer}`);
     } else if (scoreComputer > scorePlayer) {
