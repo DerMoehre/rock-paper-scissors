@@ -25,6 +25,11 @@
     gap: 20px;
 }
 
+.sign-player, .sign-cpu {
+/*     height: 100px;
+    width: 100px; */
+}
+
 .player, .cpu {
     display: flex;
     flex-direction: column;
@@ -49,4 +54,11 @@
 .rock:hover, .paper:hover, .scissors:hover {
     color: black;
     background-color: rgb(119, 112, 112);
+}
+
+.result {
+    height: 100px;
+    text-align: center;
+    margin-top: 32px;
+    font-size: 48px;
 }

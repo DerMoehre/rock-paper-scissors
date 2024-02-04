@@ -4,12 +4,17 @@ let scoreComputer = 0;
 const btnRock = document.querySelector('.rock');
 const btnPaper = document.querySelector('.paper');
 const btnScissors = document.querySelector('.scissors');
-const playerScore = document.querySelector('.player-score')
-const cpuScore = document.querySelector('.cpu-score')
+const playerScore = document.querySelector('.player-score');
+const cpuScore = document.querySelector('.cpu-score');
+const result = document.querySelector('.result');
 
+const signPlayer = document.querySelector('.sign-player');
+const signCpu = document.querySelector('.sign-cpu');
+
+const choicesArray = ['images/paper_icons.svg', 'images/rock_icon.svg', 'images/scissors_icon.svg']
 
 btnRock.addEventListener('click', () => {
-    playGame("rock", computerChoice())
+    playGame("rock",computerChoice())
 });
 
 btnPaper.addEventListener('click', () => {
@@ -29,40 +34,40 @@ let computerChoice = () => {
     return choices[randomChoice];
 }
 
-/* let playerChoice = () => {
-    let playerInput = prompt("Choose your weapon [rock, paper, scissors]");
-    return playerInput.toLowerCase();
-} */
-
-let playGame = (playerChoice, computerChoice) => {
-    if (playerChoice == computerChoice){
-        scoreComputer += 1;
-        scorePlayer += 1;
-        playerScore.textContent = scorePlayer;
-        cpuScore.textContent = scoreComputer;
-        //return "DRAW";
-    } else if ((playerChoice == "rock" && computerChoice == "scissors") || (playerChoice == "paper" && computerChoice == "rock") || (playerChoice == "scissors" && computerChoice == "paper")){
-        scorePlayer += 1;       
-        playerScore.textContent = scorePlayer;
-        //return `You win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
-    } else {
-        scoreComputer += 1;
-        cpuScore.textContent = scoreComputer;
-        //return `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
-    }
+let showSign = (arrayPosition) => {
+    let chooseSign = choicesArray[arrayPosition];
+    signPlayer.innerHTML = `<img src=${chooseSign}>`;
+    signCpu.innerHTML = `<img src=${chooseSign}>`;
 }
 
-let game = () => {
+let playGame = (playerChoice, computerChoice) => {
+    if (scoreComputer < 5 && scorePlayer < 5 ){
+        if (playerChoice == computerChoice){
+            scoreComputer += 1;
+            scorePlayer += 1;
+            playerScore.textContent = scorePlayer;
+            cpuScore.textContent = scoreComputer;
+        } else if ((playerChoice == "rock" && computerChoice == "scissors") || (playerChoice == "paper" && computerChoice == "rock") || (playerChoice == "scissors" && computerChoice == "paper")){
+            scorePlayer += 1;       
+            playerScore.textContent = scorePlayer;
+        } else {
+            scoreComputer += 1;
+            cpuScore.textContent = scoreComputer;
+        }
+        checkWinner();
+    }
 
-/*     for (let i = 0; i <= 4; i++) {
-        console.log(playGame(playerChoice(), computerChoice()));
-    } */
+}
+
+let checkWinner = () => {
     // check final score
-    if (scorePlayer > scoreComputer) {
-        alert(`You WON! Final Score: ${scorePlayer} - ${scoreComputer}`);
-    } else if (scoreComputer > scorePlayer) {
-        alert(`You LOSE! Final Score: ${scoreComputer} - ${scorePlayer}`);
-    } else (alert(`DRAW! Final Score: ${scoreComputer} - ${scorePlayer}`));
+    if (scoreComputer == 5 || scorePlayer == 5){
+        if (scorePlayer > scoreComputer) {
+            result.textContent = "You WON!"
+        } else if (scoreComputer > scorePlayer) {
+            result.textContent = "You LOSE!"
+        } else (result.textContent = "DRAW!");
+    }
 }
 
 
