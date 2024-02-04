@@ -25,9 +25,17 @@
     gap: 20px;
 }
 
-.sign-player, .sign-cpu {
-/*     height: 100px;
-    width: 100px; */
+.sign-player {
+    filter: invert(43%) sepia(16%) saturate(573%) hue-rotate(192deg) brightness(99%) contrast(94%);
+}
+
+.sign-cpu {
+    filter: invert(50%) sepia(33%) saturate(788%) hue-rotate(317deg) brightness(118%) contrast(102%);
+}
+
+.img-sign {
+    height: 100px;
+    width: 100px;
 }
 
 .player, .cpu {
@@ -40,8 +48,12 @@
     font-size: 48px;
 }
 
-.rock, .paper, .scissors {
+button {
     background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
     border: none;
     color: white;
     padding: 15px;
@@ -51,7 +63,7 @@
     cursor: pointer;
 }
 
-.rock:hover, .paper:hover, .scissors:hover {
+button:hover {
     color: black;
     background-color: rgb(119, 112, 112);
 }

@@ -11,7 +11,8 @@ const result = document.querySelector('.result');
 const signPlayer = document.querySelector('.sign-player');
 const signCpu = document.querySelector('.sign-cpu');
 
-const choicesArray = ['images/paper_icons.svg', 'images/rock_icon.svg', 'images/scissors_icon.svg']
+const choicesFiles = ['images/paper_icon.svg', 'images/rock_icon.svg', 'images/scissors_icon.svg'];
+const choices = ["paper", "rock", "scissors"];
 
 btnRock.addEventListener('click', () => {
     playGame("rock",computerChoice())
@@ -26,18 +27,20 @@ btnScissors.addEventListener('click', () => {
 });
 
 let computerChoice = () => {
-    let choices = ["rock", "paper", "scissors"];
-
     // get random element from array
     const randomChoice = Math.floor(Math.random() * choices.length);
 
     return choices[randomChoice];
 }
 
-let showSign = (arrayPosition) => {
-    let chooseSign = choicesArray[arrayPosition];
-    signPlayer.innerHTML = `<img src=${chooseSign}>`;
-    signCpu.innerHTML = `<img src=${chooseSign}>`;
+let showSign = (playerChoice, computerChoice) => {
+    let indexPlayer = choices.indexOf(playerChoice);
+    let indexCpu = choices.indexOf(computerChoice);
+
+    let chooseSignPlayer = choicesFiles[indexPlayer];
+    let chooseSignCpu = choicesFiles[indexCpu];
+    signPlayer.innerHTML = `<img class="img-sign sign-player" src=${chooseSignPlayer}>`;
+    signCpu.innerHTML = `<img class="img-sign sign-cpu" src=${chooseSignCpu}>`;
 }
 
 let playGame = (playerChoice, computerChoice) => {
@@ -54,6 +57,7 @@ let playGame = (playerChoice, computerChoice) => {
             scoreComputer += 1;
             cpuScore.textContent = scoreComputer;
         }
+        showSign(playerChoice, computerChoice)
         checkWinner();
     }
 
