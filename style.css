@@ -35,7 +35,7 @@
     font-size: 48px;
 }
 
-.rock, .paper, .scissor {
+.rock, .paper, .scissors {
     background-color: green;
     border: none;
     color: white;
@@ -46,7 +46,7 @@
     cursor: pointer;
 }
 
-.rock:hover, .paper:hover, .scissor:hover {
+.rock:hover, .paper:hover, .scissors:hover {
     color: black;
     background-color: rgb(119, 112, 112);
 }
