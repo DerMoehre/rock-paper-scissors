@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>RPS-Arena</title>
 </head>
 <body>
+    <div class="title">
+        <h1>Rock-Paper-Scissor-Arena</h1>
+    </div>
+    <div class="score-board">
+        <div class="player">
+            <div class="player-icon">
+                <img src="images/avatar_coffee_cup_zorro.svg" alt="">
+            </div>
+            <h2>Player</h2>
+        </div>
+        <div class="player-score">0</div>
+        <div class="cpu-score">0</div>
+        <div class="cpu">
+            <div class="cpu-icon">
+                <img src="images/avatar_fighter_luchador_man_wrestler.svg" alt="">
+            </div>
+            <h2>CPU</h2>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="rock">ROCK</button>
+        <button class="paper">PAPER</button>
+        <button class="scissor">SCISSOR</button>
+    </div>
+
     <script src="rps.js"></script>
-    
 </body>
 </html>

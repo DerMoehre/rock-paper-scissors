@@ -1,0 +1,52 @@
+.title {
+    text-align: center;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+    align-items: center;
+}
+
+.player-icon {
+    height: 200px;
+    width: 200px;
+}
+
+.cpu-icon {
+    height: 200px;
+    width: 200px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player, .cpu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-score, .cpu-score {
+    font-size: 48px;
+}
+
+.rock, .paper, .scissor {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.rock:hover, .paper:hover, .scissor:hover {
+    color: black;
+    background-color: rgb(119, 112, 112);
+}

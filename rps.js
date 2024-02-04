@@ -39,7 +39,7 @@ let game = () => {
 
 let scorePlayer = 0;
 let scoreComputer = 0;
-game();
+/* game(); */
 
 
 
